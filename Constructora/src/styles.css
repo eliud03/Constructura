@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+div.container {
+    margin-top: 20px;
+  }
+  
+body {
+  overflow-x: hidden;
+}
+
+#cerrarSesion {
+  color: white !important;
+  background: none !important;
+}

@@ -1,0 +1,83 @@
+<div class="col-md-8 offset-md-2">
+    <form [formGroup]="form" novalidate>
+      
+      <div class="form-group row" [ngClass]="{'has-danger': !form.get('nombre').valid && form.get('nombre').touched}" >
+        <label class="col-md-4 col-form-label">Nombre</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre">
+        </div>
+        <div *ngIf="form.get('nombre').errors?.required && form.get('nombre').touched" class="form-control-feedback col-md-8 offset-md-4">
+          El nombre es necesario.
+        </div>
+      </div>
+
+      <div class="form-group row" [ngClass]="{'has-danger': !form.get('apellidoPaterno').valid && form.get('apellidoPaterno').touched}" >
+          <label class="col-md-4 col-form-label">Apellido Paterno</label>
+          <div class="col-md-8">
+            <input type="text" class="form-control" formControlName="apellidoPaterno" placeholder="Apellido Paterno">
+          </div>
+          <div *ngIf="form.get('apellidoPaterno').errors?.required && form.get('apellidoPaterno').touched" class="form-control-feedback col-md-8 offset-md-4">
+            El apellido paterno es necesario.
+        </div>
+      </div>
+
+      <div class="form-group row" [ngClass]="{'has-danger': !form.get('apellidoMaterno').valid && form.get('apellidoMaterno').touched}" >
+          <label class="col-md-4 col-form-label">Apellido Materno</label>
+          <div class="col-md-8">
+            <input type="text" class="form-control" formControlName="apellidoMaterno" placeholder="Apellido Materno">
+          </div>
+          <div *ngIf="form.get('apellidoMaterno').errors?.required && form.get('apellidoMaterno').touched" class="form-control-feedback col-md-8 offset-md-4">
+            El apellido materno es necesario.
+        </div>
+      </div>
+
+      <div class="form-group row" [ngClass]="{'has-danger': !form.get('correo').valid && form.get('correo').touched}" >
+          <label class="col-md-4 col-form-label">Correo</label>
+          <div class="col-md-8">
+            <input type="email" class="form-control" formControlName="correo" placeholder="correo@correo.com">
+          </div>
+          <div *ngIf="form.get('correo').errors?.required && form.get('correo').touched" class="form-control-feedback col-md-8 offset-md-4">
+            El correo es necesario.
+          </div>
+          <div *ngIf="form.get('correo').errors?.required && form.get('correo').touched" class="form-control-feedback col-md-8 offset-md-4">
+              El correo es necesario.
+            </div>
+      </div>
+      
+      <div class="form-group row" [ngClass]="{'has-danger': !form.get('password').valid && form.get('password').touched}">
+        <label class="col-md-4 col-form-label" >Contraseña</label>
+        <div class="col-md-8">
+          <input type="password" class="form-control" placeholder="Contraseña" formControlName="password">
+        </div>
+    
+        <div *ngIf="form.get('password').errors?.required && form.get('password').touched" class="form-control-feedback col-md-8 offset-md-4">
+          La contraseña es necesaria.
+        </div>
+      </div>
+      
+      <div class="form-group row" [ngClass]="{'has-danger': !form.get('rol').valid && form.get('rol').touched}">
+          <label class="col-md-4 col-form-label" >Rol</label>
+          <div class="col-md-8">
+            <select class="form-control" formControlName="rol">
+              <option value="0">--Seleccione--</option>
+              <option *ngFor="let rol of roles" value="{{ rol.id }}">{{ rol.rol }}</option>
+            </select>
+          </div>
+      
+          <div *ngIf="form.get('rol').errors?.required && form.get('rol').touched" class="form-control-feedback col-md-8 offset-md-4">
+            La contraseña es necesaria.
+          </div>
+        </div>
+
+      <div class="col-md-8 offset-md-4 row">
+        <div class="col-md-4">
+          <button [disabled]="!form.valid" (click)="ingresar()" class="btn btn-primary">Aceptar</button>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-light" (click)="cancelar()">Cancelar</button>
+        </div>  
+      </div>
+      
+    
+    </form>
+    </div>

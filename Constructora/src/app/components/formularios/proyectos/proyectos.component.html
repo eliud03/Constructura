@@ -1,0 +1,56 @@
+<div class="col-md-8 offset-md-2">
+    <form [formGroup]="form" novalidate>
+      
+      <div class="form-group row" [ngClass]="{'has-danger': !form.get('nombre').valid && form.get('nombre').touched}" >
+        <label class="col-md-4 col-form-label">Nombre</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre">
+        </div>
+        <div *ngIf="form.get('nombre').errors?.required && form.get('nombre').touched" class="form-control-feedback col-md-8 offset-md-4">
+          El nombre es necesario.
+        </div>
+      </div>
+
+      <div class="form-group row" [ngClass]="{'has-danger': !form.get('direccion').valid && form.get('direccion').touched}" >
+          <label class="col-md-4 col-form-label">Apellido Paterno</label>
+          <div class="col-md-8">
+            <textarea class="md-textarea form-control" rows="5" formControlName="direccion" placeholder="Dirección"></textarea>
+          </div>
+          <div *ngIf="form.get('direccion').errors?.required && form.get('direccion').touched" class="form-control-feedback col-md-8 offset-md-4">
+            La direccion es necesario.
+        </div>
+      </div>
+
+      <div class="form-group row" [ngClass]="{'has-danger': !form.get('descripcion').valid && form.get('descripcion').touched}" >
+          <label class="col-md-4 col-form-label">Descripción</label>
+          <div class="col-md-8">
+            <input type="text" class="form-control" formControlName="descripcion" placeholder="Descripción">
+          </div>
+          <div *ngIf="form.get('descripcion').errors?.required && form.get('descripcion').touched" class="form-control-feedback col-md-8 offset-md-4">
+            Ingresa una descripcion.
+        </div>
+      </div>
+
+      <div class="form-group row" [ngClass]="{'has-danger': !form.get('imagen').valid && form.get('imagen').touched}" >
+          <label class="col-md-4 col-form-label">Imagen</label>
+          <div class="col-md-8">
+            <input type="file" class="form-control" formControlName="imagen">
+          </div>
+          <div *ngIf="form.get('imagen').errors?.required && form.get('imagen').touched" class="form-control-feedback col-md-8 offset-md-4">
+            Ingrese una imagen.
+          </div>
+      </div>
+      
+
+      <div class="col-md-8 offset-md-4 row">
+        <div class="col-md-4">
+          <button [disabled]="!form.valid" (click)="ingresar()" class="btn btn-primary">Aceptar</button>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-light" (click)="cancelar()">Cancelar</button>
+        </div>  
+      </div>
+      
+    
+    </form>
+    </div>

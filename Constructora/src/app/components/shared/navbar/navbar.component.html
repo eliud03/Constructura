@@ -1,0 +1,65 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" [routerLink]="['/home']" >Constructora</a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"  routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/home']" >Inicio</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Usuarios
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"  routerLinkActive="active">
+          <a class="dropdown-item"  [routerLink]="['/usuario']">Agregar Nuevo</a>
+          <a class="dropdown-item" href="#">Listado de Usuarios</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Personal
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"  routerLinkActive="active">
+          <a class="dropdown-item"  [routerLink]="['/personal']">Agregar Nuevo</a>
+          <a class="dropdown-item" href="#">Listado de Personal</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Proveedores
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"  routerLinkActive="active">
+          <a class="dropdown-item"  [routerLink]="['/proveedor']">Agregar Nuevo</a>
+          <a class="dropdown-item" href="#">Listado de Proveedores</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Proyectos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"  routerLinkActive="active">
+          <a class="dropdown-item"  [routerLink]="['/proyecto']">Agregar Nuevo</a>
+          <a class="dropdown-item" href="#">Listado de Proyectos</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Ordenes Trabajo
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"  routerLinkActive="active">
+            <a class="dropdown-item"  [routerLink]="['/orden']">Agregar Nueva</a>
+            <a class="dropdown-item" href="#">Listado de Ordenes</a>
+          </div>
+        </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li> -->
+    </ul>
+    <form class="form-inline my-2 my-lg-0" (ngSubmit)="cerrarSesion()">
+        <button class="btn btn-light my-2 my-sm-0" type="submit" id="cerrarSesion">Cerrar Sesion</button>
+      </form>
+  </div>
+</nav>
+

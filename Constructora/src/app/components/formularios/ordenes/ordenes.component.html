@@ -1,0 +1,77 @@
+<div class="col-md-8 offset-md-2">
+    <form [formGroup]="form" novalidate>
+
+      <div class="form-group row" [ngClass]="{'has-danger': !form.get('proyecto').valid && form.get('proyecto').touched}">
+          <label class="col-md-4 col-form-label" >Proyecto</label>
+          <div class="col-md-8">
+            <select class="form-control" formControlName="proyecto">
+              <option value="0">--Seleccione--</option>
+              <option *ngFor="let proyecto of proyectos" value="{{ proyecto.id }}">{{ proyecto.nombre }}</option>
+            </select>
+          </div>
+      
+          <div *ngIf="form.get('proyecto').errors?.required && form.get('proyecto').touched" class="form-control-feedback col-md-8 offset-md-4">
+            Selecione un proyecto
+          </div>
+      </div>
+
+      <div class="form-group row" [ngClass]="{'has-danger': !form.get('proveedor').valid && form.get('proveedor').touched}">
+          <label class="col-md-4 col-form-label" >proveedor</label>
+          <div class="col-md-8">
+            <select class="form-control" formControlName="proveedor">
+              <option value="0">--Seleccione--</option>
+              <option *ngFor="let proveedor of proveedores" value="{{ proveedor.id }}">{{ proveedor.nombre }}</option>
+            </select>
+          </div>
+      
+          <div *ngIf="form.get('proveedor').errors?.required && form.get('proveedor').touched" class="form-control-feedback col-md-8 offset-md-4">
+            Selecione un proveedor
+          </div>
+      </div>
+
+      <div class="form-group row" [ngClass]="{'has-danger': !form.get('medioPago').valid && form.get('medioPago').touched}">
+          <label class="col-md-4 col-form-label" >Medios de Pago</label>
+          <div class="col-md-8">
+            <select class="form-control" formControlName="medioPago">
+              <option value="0">--Seleccione--</option>
+              <option *ngFor="let medioPago of mediosPagos" value="{{ medioPago.id }}">{{ medioPago.nombre }}</option>
+            </select>
+          </div>
+      
+          <div *ngIf="form.get('medioPago').errors?.required && form.get('medioPago').touched" class="form-control-feedback col-md-8 offset-md-4">
+            Selecione un medio de pago
+          </div>
+      </div>
+      
+      <div class="form-group row" [ngClass]="{'has-danger': !form.get('fecha').valid && form.get('fecha').touched}" >
+        <label class="col-md-4 col-form-label">Fecha</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control" formControlName="fecha" placeholder="Fecha de atencion">
+        </div>
+        <div *ngIf="form.get('fecha').errors?.required && form.get('fecha').touched" class="form-control-feedback col-md-8 offset-md-4">
+          La fecha es necesaria.
+        </div>
+      </div>
+
+      <div class="form-group row" [ngClass]="{'has-danger': !form.get('folio').valid && form.get('folio').touched}" >
+          <label class="col-md-4 col-form-label">Folio</label>
+          <div class="col-md-8">
+            <input type="text" class="form-control" formControlName="folio" placeholder="Folio">
+          </div>
+          <div *ngIf="form.get('folio').errors?.required && form.get('folio').touched" class="form-control-feedback col-md-8 offset-md-4">
+            El folio es necesario.
+        </div>
+      </div>
+
+      <div class="col-md-8 offset-md-4 row">
+        <div class="col-md-4">
+          <button [disabled]="!form.valid" (click)="ingresar()" class="btn btn-primary">Aceptar</button>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-light" (click)="cancelar()">Cancelar</button>
+        </div>  
+      </div>
+      
+    
+    </form>
+    </div>
